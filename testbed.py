@@ -1,26 +1,22 @@
-# 해리스 코너 검출 (corner_harris.py)
+# 시와 토마시 코너 검출 (corner_goodFeature.py)
 
 import cv2
 import numpy as np
+from array_maker import visual_array
+from test_dataset import *
 
-img = cv2.imread('coffee.jpg')
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+img = np.array(test_data4, dtype=np.uint8)
 
-# 해리스 코너 검출 ---①
-corner = cv2.cornerHarris(gray, 2, 3, 0.04)
-# 변화량 결과의 최대값 10% 이상의 좌표 구하기 ---②
-coord = np.where(corner > 0.1* corner.max())
-coord = np.stack((coord[1], coord[0]), axis=-1)
+# 시-토마스의 코너 검출 메서드
+corners = cv2.goodFeaturesToTrack(img, 3, 0.01, 1)
+# 실수 좌표를 정수 좌표로 변환
+corners = np.int32(corners)
 
-# 코너 좌표에 동그리미 그리기 ---③
-for x, y in coord:
-    cv2.circle(img, (x,y), 5, (0,0,255), 1, cv2.LINE_AA)
 
-# 변화량을 영상으로 표현하기 위해서 0~255로 정규화 ---④
-corner_norm = cv2.normalize(corner, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8U)
-# 화면에 출력
-corner_norm = cv2.cvtColor(corner_norm, cv2.COLOR_GRAY2BGR)
-merged = np.hstack((corner_norm, img))
-cv2.imshow('Harris Corner', merged)
-cv2.waitKey()
-cv2.destroyAllWindows()
+# 좌표에 동그라미 표시
+for corner in corners:
+    x, y = corner[0]
+    cv2.circle(img, (x, y), 5, (0,0,125), 1, cv2.LINE_AA)
+
+result = np.array(img)
+visual_array(result)
