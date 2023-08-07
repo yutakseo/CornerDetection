@@ -10,4 +10,4 @@ def make_cordinate(data):
     return grid
 
 
-print(make_cordinate(test_data14))
+print(make_cordinate(test_data4))

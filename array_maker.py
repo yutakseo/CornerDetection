@@ -6,7 +6,7 @@ def make_array(data):
     matrix = np.array(data)
     return matrix
 
-def visual_array(data):
+def visual_array(title:str, data):
     matrix = np.array(data)
     rows, cols = matrix.shape
     #사용할 컬러는 회색과 흰색
@@ -14,7 +14,7 @@ def visual_array(data):
 
     #행렬을 이미지(그래프)로 표시
     plt.imshow(matrix, cmap=cmap_custom, interpolation='nearest', extent=[0, cols, rows, 0], origin='upper')
-    plt.title("Matrix")
+    plt.title(title)
     
     #격자를 설정, 간격은 1
     plt.xticks(np.arange(0, cols, step=1))
