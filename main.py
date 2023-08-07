@@ -4,4 +4,4 @@ from array_maker import visual_array
 from corner_detector import harris_corner
 
 
-harris_corner(test_data4, 2, 3, 0.01)
+harris_corner(test_data1, 2, 3, 0.1)
