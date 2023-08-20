@@ -1,7 +1,7 @@
 def test(src, tval):
-    for i in src:
-        for j in src[i]:
+    
+    for i in range(len(src)):
+        for j in range(len(src[0])):
             if src[i][j] == tval[i][j]:
-                right +=1
-            total += 1
-            
+                
+
