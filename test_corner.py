@@ -34,7 +34,7 @@ def binary_corner(parameter):
         
 
         
-src = stair
+src = test_data_mini
 dst = harris_corner(src, 2, 3, 0.01)
 end = time.time()
 print("runtime : ",end -start)

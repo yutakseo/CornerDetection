@@ -26,4 +26,23 @@ def visual_array(title:str, data):
     
     plt.show()
 
+
+def binary_corner(parameter):
+    new_array = []
+    new_row = []
+    max_val = 0
+    for i in range(len(parameter)):
+        for j in range(len(parameter[i])):
+            max_val = parameter[0][0]
+            if parameter[i][j] < max_val:
+                max_val = parameter[i][j]
+    
+    for i in range(len(parameter)):
+        for j in range(len(parameter[i])):
+            if max_val == parameter[i][j]:
+                new_row.append(1)
+            else:
+                new_row.append(0)
+        new_array.append(new_row)
+        
     
