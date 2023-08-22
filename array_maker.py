@@ -11,7 +11,7 @@ def visual_array(title:str, data):
     rows, cols = matrix.shape
     #사용할 컬러는 회색과 흰색
     cmap_custom = plt.cm.colors.ListedColormap(['gray', 'white'])
-
+    
     #행렬을 이미지(그래프)로 표시
     plt.imshow(matrix, cmap=cmap_custom, interpolation='nearest', extent=[0, cols, rows, 0], origin='upper')
     plt.title(title)
@@ -25,24 +25,12 @@ def visual_array(title:str, data):
     plt.grid(which='both', color='black', linestyle='-', linewidth=0.5)
     
     plt.show()
+    return matrix
 
-
-def binary_corner(parameter):
-    new_array = []
-    new_row = []
-    max_val = 0
-    for i in range(len(parameter)):
-        for j in range(len(parameter[i])):
-            max_val = parameter[0][0]
-            if parameter[i][j] < max_val:
-                max_val = parameter[i][j]
-    
-    for i in range(len(parameter)):
-        for j in range(len(parameter[i])):
-            if max_val == parameter[i][j]:
-                new_row.append(1)
-            else:
-                new_row.append(0)
-        new_array.append(new_row)
         
-    
+def binary_corner(corner_image):
+    max_value = np.max(corner_image)
+    binary_image = np.zeros_like(corner_image, dtype=np.uint8)
+    binary_image[corner_image == max_value] = 1
+    return binary_image
+
