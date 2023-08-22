@@ -1,7 +1,11 @@
+import time
+start = time.time()
+from matplotlib import pyplot as plt
+from array_maker import visual_array
 import cv2
 import numpy as np
-from array_maker import *
 from test_dataset import *
+#from array_maker import *
 
 
 def harris_corner(src, block_size, ksize, k):
@@ -28,3 +32,18 @@ def binary_corner(parameter):
                 new_row.append(0)
         new_array.append(new_row)
         
+
+        
+src = stair
+dst = harris_corner(src, 2, 3, 0.01)
+end = time.time()
+print("runtime : ",end -start)
+
+
+#코너탐색의 결과를 시각화
+visual_array("src", src)
+visual_array("harris result", dst)
+print(dst)
+plt.imshow(dst, cmap='jet')  # jet colormap을 사용하여 색상을 조정
+plt.colorbar()
+plt.show()

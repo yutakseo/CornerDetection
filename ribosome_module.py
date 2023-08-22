@@ -37,7 +37,7 @@ def ribosome(input):
                                         column_data.append(0)
                         else:
                                 column_data.append(0)       
-                column_converted_data.append(column_data)  
+                column_converted_data.append(column_data)
                     
         
     

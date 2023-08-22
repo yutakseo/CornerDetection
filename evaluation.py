@@ -1,3 +1,6 @@
+from test_dataset import *
+from array_maker import visual_array
+
 def test(src, tval):
     total_cell = 0
     true_cell = 0
@@ -11,3 +14,7 @@ def test(src, tval):
     
     return average
 
+
+print("유사도 : ",round(test(test_data_mini, test_data_mini_compare),2))
+visual_array("true",test_data_mini)
+visual_array('model' ,test_data_mini_compare)
