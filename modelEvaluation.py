@@ -1,5 +1,5 @@
-from test_dataset import *
-from array_maker import visual_array
+from TEST_DATASET import *
+from createArray import visual_array
 
 def evaluation(src, compare):
     total_cell = 0

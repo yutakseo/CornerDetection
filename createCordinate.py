@@ -1,6 +1,6 @@
-from test_dataset import *
+from TEST_DATASET import *
 
-def make_cordinate(data):
+def createCordinate(data):
     grid = []
     for i in range(len(data)):
         for j in range(len(data[0])):
@@ -8,4 +8,4 @@ def make_cordinate(data):
                 grid.append("("+str(j+1)+","+str(i+1)+")")
     return grid
 
-print(make_cordinate(test_data4))
+print(createCordinate(test_data4))

@@ -1,15 +1,14 @@
 import time
 from matplotlib import pyplot as plt
-from ribosome_module import ribosome
-from test_dataset import *
-from test_dataset_answer import *
-from array_maker import *
-from corner_detector import harris_corner
-from evaluation import evaluation
+from TEST_DATASET import *
+from TEST_DATASET_ANSWER import *
+from createArray import *
+from cornerDetector import harris_corner
+from modelEvaluation import evaluation
 
 
 
-src = truncated
+src = test_data4
 dst = harris_corner(src, 2, 3, 0.01)
 
 
