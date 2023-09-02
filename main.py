@@ -27,4 +27,5 @@ visual_array("bin",binary_corner(dst))
 evaluation(test_data1_answer, binary_corner(dst))
 '''
 
-visual_array(create_padding(truncated))
+#visual_array(create_padding(truncated))
+#visual_array("",rule5)
