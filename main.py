@@ -8,14 +8,14 @@ from modelEvaluation import evaluation
 
 
 
-src = truncated
-dst = harris_corner(src, 2, 3, 0.01)
+src = stair_140by140
+dst = harris_corner(src, 2, 7, 0.01)
 
 
-'''
+
 #코너탐색의 결과를 시각화
 visual_array("src", src)
-visual_array("harris result", dst)
+visual_array("dst", dst)
 
 plt.imshow(dst, cmap='jet')  # jet colormap을 사용하여 색상을 조정
 #plt.colorbar()
@@ -23,9 +23,8 @@ plt.show()
 
 visual_array("bin",binary_corner(dst))
 
+#evaluation(test_data1_answer, binary_corner(dst))
 
-evaluation(test_data1_answer, binary_corner(dst))
-'''
 
 #visual_array(create_padding(truncated))
 #visual_array("",rule5)
