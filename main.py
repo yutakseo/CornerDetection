@@ -8,7 +8,7 @@ from modelEvaluation import evaluation
 
 
 start = time.time()
-src = rectangle_10by10_ans
+src = stair_10by10_ans
 dst = harris_corner(src, 2, 3, 0.01)
 end = time.time()
 
